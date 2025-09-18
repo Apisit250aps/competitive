@@ -1,13 +1,9 @@
 from django.shortcuts import render
 from django.contrib.staticfiles import finders
+from django.http import HttpRequest
 import pandas as pd
-import json
 
 
-from django.shortcuts import render
-from django.contrib.staticfiles import finders
-import pandas as pd
-import json
 from django import template
 
 register = template.Library()
@@ -18,7 +14,7 @@ def get_item(dictionary, key):
     return dictionary.get(key, "")
 
 
-def list_view(request):
+def list_view(request:HttpRequest):
     excel_file_path = finders.find("รายชื่อต้นฉบับ.xlsx")
     if not excel_file_path:
         return render(request, "index.html", context={"data": [], "columns": []})
