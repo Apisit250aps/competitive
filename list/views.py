@@ -14,7 +14,7 @@ def get_item(dictionary, key):
     return dictionary.get(key, "")
 
 
-def list_view(request:HttpRequest):
+def list_view(request: HttpRequest):
     excel_file_path = finders.find("รายชื่อต้นฉบับ.xlsx")
     if not excel_file_path:
         return render(request, "index.html", context={"data": [], "columns": []})
@@ -29,5 +29,15 @@ def list_view(request:HttpRequest):
         ]
     data = df.to_dict(orient="records")
     columns = list(df.columns)[:8]
+    unique_teams = len(df["ทีม"].unique())
     length = len(data)
-    return render(request, "index.html", context={"data": data, "columns": columns, "length": length})
+    return render(
+        request,
+        "index.html",
+        context={
+            "data": data,
+            "columns": columns,
+            "length": length,
+            "unique_teams": unique_teams,
+        },
+    )
