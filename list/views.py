@@ -29,4 +29,5 @@ def list_view(request:HttpRequest):
         ]
     data = df.to_dict(orient="records")
     columns = list(df.columns)[:8]
-    return render(request, "index.html", context={"data": data, "columns": columns})
+    length = len(data)
+    return render(request, "index.html", context={"data": data, "columns": columns, "length": length})

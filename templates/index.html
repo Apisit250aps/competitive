@@ -38,7 +38,7 @@
 
 <body>
   <main class="pb-5">
-    <div class="row justify-content-center mb-4 position-sticky top-0 bg-white" style="z-index: 1000;">
+    <div class="row pt-5 justify-content-center mb-4 position-sticky top-0 bg-white" style="z-index: 1000;">
       <div class="col-lg-8">
         <h1 class="mb-4 text-center">ค้นหารายชื่อ/ทีม/รายการแข่งขัน</h1>
         <form method="get" class="input-group mb-4">
@@ -46,9 +46,15 @@
           <button type="submit" class="btn btn-primary">ค้นหา</button>
           <a href="/" class="btn btn-secondary">รีเซ็ต</a>
         </form>
+        <caption class="mb-2 w-full text-end pb-3 text-lg">จำนวนข้อมูล
+          <b class="text-danger">{{ length }}</b> รายการ
+        </caption>
+        
       </div>
+
     </div>
     <div class="container">
+
       <table class="w-full table table-bordered table-striped table-hover">
         <thead>
           <tr>
